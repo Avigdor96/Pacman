@@ -1,5 +1,7 @@
 package objects;
 
+import java.awt.*;
+
 public class TestNewArray {
     int[][] board = {
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
@@ -35,7 +37,7 @@ public class TestNewArray {
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
     };
 
-    public GeneralElement[][] newArray(int[][] board) {
+    public GeneralElement[][] newArray(int[][] board, Graphics g) {
         int posX = 0;
         int posY = 0;
         GeneralElement[][] generalElement = new GeneralElement[board.length][board[0].length];
@@ -43,7 +45,9 @@ public class TestNewArray {
             for (int j = 0; j < board[i].length; j++, posY += 25) {
                 switch (board[i][j]) {
                     case 1:
-                        generalElement[i][j] = new Block(posX, posY);
+                        Block block = new Block(posX, posY);
+                        generalElement[i][j] = block;
+                        block.paintBlock(g);
                         break;
                     case 2:
                         generalElement[i][j] = new Coins(posX , posY);
@@ -53,6 +57,9 @@ public class TestNewArray {
                         break;
                     case 4:
                         generalElement[i][j] = new Pacman(posX, posY);
+                        break;
+                    case 5:
+                        generalElement[i][j] = new PinkGhost(posX, posY);
                         break;
                 }
             }
