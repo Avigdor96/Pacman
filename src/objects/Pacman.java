@@ -6,9 +6,14 @@ import java.awt.*;
 public class Pacman extends GeneralElement implements Speed {
     private double speed;
     private int life = 3;
+    private ImageIcon imagePacman = new ImageIcon("src/pictures/pacmanToLeft.jpg");
 
     public Pacman(int x, int y) {
         setPoint(x, y);
+    }
+
+    public void setImagePacman(ImageIcon imagePacman) {
+        this.imagePacman = imagePacman;
     }
 
     @Override
@@ -30,8 +35,7 @@ public class Pacman extends GeneralElement implements Speed {
 
     @Override
     public Image getImage() {
-        ImageIcon imagePacman = new ImageIcon("pacmanPicture.jpg");
-        return imagePacman.getImage();
+        return this.imagePacman.getImage();
     }
 
     @Override

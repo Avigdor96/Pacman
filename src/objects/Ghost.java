@@ -1,10 +1,17 @@
 package objects;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class Ghost extends GeneralElement implements Eatable, Speed {
     private int value = 200;
     private double speed;
+    private ImageIcon image;
+
+
+    public Ghost(ImageIcon image) {
+        this.image = image;
+    }
 
     @Override
     public int getValue() {
@@ -30,7 +37,7 @@ public class Ghost extends GeneralElement implements Eatable, Speed {
 
     @Override
     public Image getImage() {
-        return null;
+        return image.getImage();
     }
 
     @Override

@@ -18,6 +18,7 @@ public class GameFrame extends JFrame {
         this.add(gamePanel, BorderLayout.CENTER);
         this.add(bottomSpace, BorderLayout.SOUTH);
         gamePanel.setBackground(Color.BLACK);
+        new Thread(gamePanel).start();
 
         gamePanel.setVisible(true);
         this.setSize(715, 900);
