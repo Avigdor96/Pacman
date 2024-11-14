@@ -14,12 +14,28 @@ public class KeyControl implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
-        switch (code) {
-            case KeyEvent.VK_UP -> up = true;
-            case KeyEvent.VK_DOWN -> down = true;
-            case KeyEvent.VK_LEFT -> left = true;
-            case KeyEvent.VK_RIGHT -> right = true;
-
+        if (code == KeyEvent.VK_UP){
+            up = true;
+            down = false;
+            left = false;
+            right = false;
+        } else if (code == KeyEvent.VK_DOWN) {
+            down = true;
+            up = false;
+            left = false;
+            right = false;
+        }
+        else if (code == KeyEvent.VK_LEFT) {
+            down = false;
+            up = false;
+            left = true;
+            right = false;
+        }
+        else if (code == KeyEvent.VK_RIGHT){
+            down = false;
+            up = false;
+            left = false;
+            right = true;
         }
     }
 
@@ -29,13 +45,13 @@ public class KeyControl implements KeyListener {
         if(code == KeyEvent.VK_UP){
             up = false;
         }
-        if (code == KeyEvent.VK_DOWN){
+        else if (code == KeyEvent.VK_DOWN){
             down = false;
         }
-        if (code == KeyEvent.VK_LEFT){
+        else if (code == KeyEvent.VK_LEFT){
             left = false;
         }
-        if (code == KeyEvent.VK_RIGHT){
+        else if (code == KeyEvent.VK_RIGHT){
             right = false;
         }
 

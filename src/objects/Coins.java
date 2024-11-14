@@ -1,12 +1,16 @@
 package objects;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class Coins extends GeneralElement implements Eatable {
     protected int value;
 
     public Coins(int x, int y) {
-        setPoint(x, y);
+        point.x = x;
+        point.y = y;
+        value = 30;
+        image = new ImageIcon("src/pictures/coinPicture.jpg");
     }
 
     @Override
@@ -16,7 +20,7 @@ public class Coins extends GeneralElement implements Eatable {
 
     @Override
     public Point getPoint() {
-        return null;
+        return point;
     }
 
     @Override
@@ -29,12 +33,12 @@ public class Coins extends GeneralElement implements Eatable {
 
     @Override
     public boolean isEaten() {
-        return false;
+        return true;
     }
 
     @Override
     public Image getImage() {
-        return null;
+        return image.getImage();
     }
 
     @Override

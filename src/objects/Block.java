@@ -1,10 +1,13 @@
 package objects;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class Block extends GeneralElement {
 
+
     public Block(int x, int y) {
+        image = new ImageIcon("src/pictures/SquareBlue.jpg");
         setPoint(x, y);
     }
 
@@ -26,18 +29,21 @@ public class Block extends GeneralElement {
 
     @Override
     public Image getImage() {
-        return null;
+        return image.getImage();
     }
 
     @Override
     public int getWidth() {
-        return 0;
+        return width;
     }
 
     @Override
     public int getHeight() {
-        return 0;
+        return height;
     }
+
+
+
 }
 
 

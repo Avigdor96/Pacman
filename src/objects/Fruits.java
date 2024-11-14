@@ -1,13 +1,20 @@
 package objects;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class Fruits extends GeneralElement implements Eatable {
-    private int value;
+    private int value = 200;
+
+    public Fruits(int x, int y) {
+       point.x = x;
+       point.y = y;
+       image = new ImageIcon("src/pictures/Cherry.jpg");
+    }
 
     @Override
     public Point getPoint() {
-        return null;
+        return point;
     }
 
     @Override
@@ -19,12 +26,12 @@ public class Fruits extends GeneralElement implements Eatable {
 
     @Override
     public boolean isEaten() {
-        return false;
+        return true;
     }
 
     @Override
     public Image getImage() {
-        return null;
+        return image.getImage();
     }
 
     @Override
@@ -36,6 +43,8 @@ public class Fruits extends GeneralElement implements Eatable {
     public int getHeight() {
         return height;
     }
+
+
 
     @Override
     public int getValue() {

@@ -1,6 +1,58 @@
-package objects;
+package Graphic;
 
-public class TestNewArray {
+import objects.*;
+
+public class CreateBoard {
+
+    public int[][] getBoard() {
+        return board;
+    }
+
+    public GeneralElement[][] newArray(int[][] board,Pacman pacman){
+        int posX = 0;
+        int posY = 0;
+        GeneralElement[][] generalElement = new GeneralElement[board.length][board[0].length];
+        for (int i = 0; i < board.length; i++) {
+            posY = i * 25;
+            for (int j = 0; j < board[i].length; j++) {
+                posX = j * 25;
+                switch (board[i][j]) {
+                    case 0:
+                        Empty empty = new Empty(posX, posY);
+                        generalElement[i][j] = empty;
+                        break;
+                    case 1:
+                        Block block = new Block(posX, posY);
+                        generalElement[i][j] = block;
+                        break;
+                    case 2:
+                        Coins coins = new Coins(posX , posY);
+                        generalElement[i][j] = coins;
+                        break;
+                    case 3:
+                        BigCoins bigCoins = new BigCoins(posX, posY);
+                        generalElement[i][j] = bigCoins;
+                        break;
+                }
+            }
+        }
+        generalElement[21][12] = pacman;
+        return generalElement;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     int[][] board = {
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
             {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1},
@@ -14,18 +66,16 @@ public class TestNewArray {
             {1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1},
             {0, 0, 0, 0, 0, 1, 2, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 2, 1, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 1, 0, 0, 0, 0, 0},
+            {1, 1, 1, 1, 1, 1, 2, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1},
+            {0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0},
+            {1, 1, 1, 1, 1, 1, 2, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1},
             {0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 1, 0, 0, 0, 0, 0},
-            {1, 1, 1, 1, 1, 1, 2, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1},
-            {0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 5, 6, 7, 8, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0},
-            {1, 1, 1, 1, 1, 1, 2, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1},
-            {0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 1, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 1, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 2, 1, 0, 0, 0, 0, 0},
-            {1, 1, 1, 1, 1, 1, 2, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1},
+            {0, 0, 0, 0, 0, 1, 2, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 2, 1, 0, 0, 0, 0, 0},
+            {1, 1, 1, 1, 1, 1, 2, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1},
             {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1},
             {1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1},
             {1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1},
-            {1, 3, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 4, 0, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 3, 1},
+            {1, 3, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 3, 1},
             {1, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1},
             {1, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1},
             {1, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 1},
@@ -34,30 +84,4 @@ public class TestNewArray {
             {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1},
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
     };
-
-    public GeneralElement[][] newArray(int[][] board) {
-        int posX = 0;
-        int posY = 0;
-        GeneralElement[][] generalElement = new GeneralElement[board.length][board[0].length];
-        for (int i = 0; i < board.length; i++, posX += 25) {
-            for (int j = 0; j < board[i].length; j++, posY += 25) {
-                switch (board[i][j]) {
-                    case 1:
-                        generalElement[i][j] = new Block(posX, posY);
-                        break;
-                    case 2:
-                        generalElement[i][j] = new Coins(posX , posY);
-                        break;
-                    case 3:
-                        generalElement[i][j] = new BigCoins(posX, posY);
-                        break;
-                    case 4:
-                        generalElement[i][j] = new Pacman(posX, posY);
-                        break;
-                }
-            }
-        }
-        return generalElement;
-
-    }
 }

@@ -6,14 +6,40 @@ import java.awt.*;
 public class Pacman extends GeneralElement implements Speed {
     private double speed;
     private int life = 3;
-    private ImageIcon imagePacman = new ImageIcon("src/pictures/pacmanToLeft.jpg");
+    private int score = 0;
+
 
     public Pacman(int x, int y) {
-        setPoint(x, y);
+        point.x = x;
+        point.y = y;
+        image = new ImageIcon("src/pictures/pacmanToLeft.jpg");
+        score = 0;
+        width = 23;
+        height = 23;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
+    public int getLife() {
+        return life;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     public void setImagePacman(ImageIcon imagePacman) {
-        this.imagePacman = imagePacman;
+        this.image = imagePacman;
     }
 
     @Override
@@ -35,8 +61,9 @@ public class Pacman extends GeneralElement implements Speed {
 
     @Override
     public Image getImage() {
-        return this.imagePacman.getImage();
+        return this.image.getImage();
     }
+
 
     @Override
     public int getWidth() {
@@ -52,4 +79,5 @@ public class Pacman extends GeneralElement implements Speed {
     public double getSpeed() {
         return speed;
     }
+
 }

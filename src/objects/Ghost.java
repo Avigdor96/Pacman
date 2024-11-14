@@ -6,11 +6,13 @@ import java.awt.*;
 public class Ghost extends GeneralElement implements Eatable, Speed {
     private int value = 200;
     private double speed;
-    private ImageIcon image;
+    protected ImageIcon image;
+    protected Point point;
 
 
-    public Ghost(ImageIcon image) {
-        this.image = image;
+    public Ghost(int x, int y) {
+        point.x = x;
+        point.y = y;
     }
 
     @Override
@@ -20,7 +22,7 @@ public class Ghost extends GeneralElement implements Eatable, Speed {
 
     @Override
     public Point getPoint() {
-        return null;
+        return point;
     }
 
     @Override
@@ -50,8 +52,41 @@ public class Ghost extends GeneralElement implements Eatable, Speed {
         return height;
     }
 
+
     @Override
     public double getSpeed() {
         return speed;
     }
 }
+class PinkGhost extends Ghost{
+
+    public PinkGhost(int x, int y){
+        super(x ,y);
+        image = new ImageIcon("src/pictures/GhostPink.jpg");
+    }
+}
+
+class YellowGhost extends Ghost{
+
+    public YellowGhost(int x, int y){
+        super(x, y);
+        image = new ImageIcon("src/pictures/GhostYellow.jpg");
+    }
+}
+
+class GreenGhost extends Ghost{
+
+    public GreenGhost(int x, int y){
+        super(x, y);
+        image = new ImageIcon("src/pictures/GhostGreen.jpg");
+    }
+}
+
+class BlueGhost extends Ghost{
+
+    public BlueGhost(int x, int y){
+        super(x, y);
+        image = new ImageIcon("src/pictures/GhostBlue.jpg");
+    }
+}
+

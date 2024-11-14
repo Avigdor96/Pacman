@@ -21,7 +21,7 @@ public class GameFrame extends JFrame {
         new Thread(gamePanel).start();
 
         gamePanel.setVisible(true);
-        this.setSize(715, 900);
+        this.setSize(715, 950);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setBackground(Color.BLACK);
         this.setVisible(true);
