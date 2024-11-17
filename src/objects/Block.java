@@ -11,6 +11,9 @@ public class Block extends GeneralElement {
         setPoint(x, y);
     }
 
+
+
+
     public void paintBlock(Graphics g){
         g.setColor(Color.BLUE);
         g.fillOval(point.x, point.y, width, height);
@@ -43,7 +46,7 @@ public class Block extends GeneralElement {
     }
 
     @Override
-    public int getHeight() {
+    public int getHeight()eG {
         return height;
     }
 

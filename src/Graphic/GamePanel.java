@@ -29,9 +29,9 @@ public class GamePanel extends JPanel implements Runnable{
         super.paintComponent(g);
         int[][] board = numOfElement();
         for (int i = 0; i < board.length; i++) {
+            y = i * width_height;
             for (int j = 0; j < board[i].length; j++) {
                 x  = j * width_height;
-                y = i * width_height;
                 if (board[i][j] == 1) {
                     g.setColor(Color.cyan);
                     g.fillRect(x,y,25,25);
@@ -44,7 +44,7 @@ public class GamePanel extends JPanel implements Runnable{
                 }
                 else if (board[i][j] == 3) {
                     g.setColor(Color.red);
-                    g.fillOval(x + 5, y + 3,20,20);
+                    //g.fillOval(x + 5, y + 3,20,20);
                     BigCoins bigCoins = new BigCoins(x, y);
                 } else if (board[i][j] == 4) {
                     g.drawImage(pacman.getImage(), x += 12, y, width_height, width_height, this);
